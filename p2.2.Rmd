@@ -1,0 +1,46 @@
+---
+title: "P_2.2"
+output: html_document
+date: "2023-09-23"
+---
+
+```{r}
+library(tidyr
+        )
+library(dplyr
+        )
+```
+
+```{r}
+rairuoho <- read.table('rairuoho.txt')
+```
+
+```{r}
+rairuoho["V9"][rairuoho["V9"] == 'nutrient'] <- "enriched"
+```
+
+```{r}
+rairuoho2 <- rairuoho[, -12]
+rairuoho3 <- rairuoho2[, -12]
+```
+
+```{r}
+rairuoho3 <- rairuoho3[-1,]
+```
+
+```{r}
+rairuoho3 <- rairuoho3 %>% 
+    rename("day3" = "V1", "day4" = "V2", "day5" = "V3", "day6" = "V4", "day7" = "V5", "day8" = "V6", "germinate" = "V7", "bed" = "V8", "treatment" = "V9", "spatial1" = "V10", "spatial2" = "V11")
+```
+
+```{r}
+rairuoho_long <- rairuoho3 %>% pivot_longer(day3:day8, names_to = "factor", values_to = "length")
+```
+
+```{r}
+rairuoho_long2 <- rairuoho_long %>% unite("spatial", spatial1:spatial2)
+```
+
+```{r}
+print(rairuoho_long2)
+```

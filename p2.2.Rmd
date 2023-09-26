@@ -10,7 +10,7 @@ library(dplyr)
 ```
 
 ```{r}
-rairuoho <- read.table('rairuoho.txt', header =T)
+rairuoho <- read.table('https://www.dipintothereef.com/uploads/3/7/3/5/37359245/rairuoho.txt', header =T, sep="\t")
 # use the URL instead. When a file is available online it saves your time to import directly from a URL
 # if you use a local file like you ar doing here, better to create another file such as 'Data' in your working directory. To import it you will use: 'Data/rairuoho.txt'
 # don't forget header = T. That's why you have to do some of the steps below.
@@ -19,7 +19,7 @@ rairuoho <- read.table('rairuoho.txt', header =T)
 
 ```{r}
 # better to call variable name after importing the file with header = T
-rairuoho["V9"][rairuoho["V9"] == 'nutrient'] <- "enriched"
+rairuoho["treatment"][rairuoho["treatment"] == 'nutrient'] <- "enriched"
 ```
 
 ```{r}
@@ -32,8 +32,8 @@ rairuoho3 <- rairuoho3[-1,] # this step in uncessary if header=T when you import
 ```
 
 ```{r}
-rairuoho3 <- rairuoho3 %>% 
-    rename("day3" = "V1", "day4" = "V2", "day5" = "V3", "day6" = "V4", "day7" = "V5", "day8" = "V6", "germinate" = "V7", "bed" = "V8", "treatment" = "V9", "spatial1" = "V10", "spatial2" = "V11")
+#rairuoho3 <- rairuoho3 %>% 
+    #rename("day3" = "V1", "day4" = "V2", "day5" = "V3", "day6" = "V4", "day7" = "V5", "day8" = "V6", "germinate" = "V7", "bed" = "V8", "treatment" = "V9", "spatial1" = "V10", "spatial2" = "V11")
 ```
 
 ```{r}

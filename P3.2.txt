@@ -1,0 +1,6 @@
+ before_diet after_diet
+subject_1 104 96.5
+subject_2 95 92.5
+subject_3 87 82.5
+subject_4 77 75.5
+subject_5 112 118.5

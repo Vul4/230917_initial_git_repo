@@ -4,33 +4,52 @@ output: html_document
 date: "2023-10-01"
 ---
 # R P3.2  to create a list
-#The first attribute is the row names
+
+Trying to help you a bit below with a step-by-step solution
+
 ```{r}
-subjectId = c(1, 2, 3, 4, 5)
-
-subject_before_diet = c(104, 95, 87, 77, 112)
-subject_after_diet = c(96, 91, 81, 75, 118)
-subject_after_diet.c = as.double(subject_after_diet)
-numberOfSubject = 5
-BUBBLE_DIET = list(
-  "ID" = subjectId,
-  "before_diet" = subject_before_diet,
-  "after_diet" = subject_after_diet,
-  "Total Subject" = numberOfSubject
-  )
-
+# First: make the table
+before_diet = c(104, 95, 87, 77, 112)
+after_diet = c(96, 91, 81, 75, 118)
 subjectName = c("subject_1", "subject_2", "subject_3", "subject_4", "subject_5")
-subject_weight_loss = c(8, 4, 6, 2, -6)
+table.diet<-data.frame(subject_before_diet, subject_after_diet)
+rownames(table.diet)<-subjectName
+table.diet
+
+## subject_after_diet.c = as.double(subject_after_diet)
+## numberOfSubject = 5
+
+# Second: weight_loss
+
+weight_loss <- before_diet-after_diet # subject_weight_loss = c(8, 4, 6, 2, -6)
+
+
+# Third: the message
+
+message<- 'it is really a headache but I hope I could master it'
+# keep working hard, and by trying and you will eventually master it.
+
+
+
+# Fourth: the WEIGHT_LOSS list
+
 WEIGHT_LOSS = list(
   "subject" = subjectName,
-  "weight_loss" = subject_weight_loss
+  "weight_loss" = weight_loss,
+  "table" = data.frame(subjectName, weight_loss)
 )
 
-MESSAGE = list(
-  'it is really a headache but I hope I could master it'
-)
 
+# Fifth: the BUBBLE_DIET list
+
+
+BUBBLE_DIET = list(
+  "Table_diet" = table.diet,
+  "Info_weight_loss" = WEIGHT_LOSS,
+  "Message" = message
+    )
 
 print(BUBBLE_DIET)
 ```
-# The second attribute 
+
+Easy, easy :)

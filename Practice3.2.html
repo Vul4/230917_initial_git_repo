@@ -357,47 +357,81 @@ display: none;
 
 <div id="r-p3.2-to-create-a-list" class="section level1">
 <h1>R P3.2 to create a list</h1>
-<p>#The first attribute is the row names</p>
-<pre class="r"><code>subjectId = c(1, 2, 3, 4, 5)
-
-subject_before_diet = c(104, 95, 87, 77, 112)
-subject_after_diet = c(96, 91, 81, 75, 118)
-subject_after_diet.c = as.double(subject_after_diet)
-numberOfSubject = 5
-BUBBLE_DIET = list(
-  &quot;ID&quot; = subjectId,
-  &quot;before_diet&quot; = subject_before_diet,
-  &quot;after_diet&quot; = subject_after_diet,
-  &quot;Total Subject&quot; = numberOfSubject
-  )
-
+<p>Trying to help you a bit below with a step-by-step solution</p>
+<pre class="r"><code># First: make the table
+before_diet = c(104, 95, 87, 77, 112)
+after_diet = c(96, 91, 81, 75, 118)
 subjectName = c(&quot;subject_1&quot;, &quot;subject_2&quot;, &quot;subject_3&quot;, &quot;subject_4&quot;, &quot;subject_5&quot;)
-subject_weight_loss = c(8, 4, 6, 2, -6)
+table.diet&lt;-data.frame(before_diet, after_diet)
+rownames(table.diet)&lt;-subjectName
+table.diet</code></pre>
+<pre><code>##           before_diet after_diet
+## subject_1         104         96
+## subject_2          95         91
+## subject_3          87         81
+## subject_4          77         75
+## subject_5         112        118</code></pre>
+<pre class="r"><code>## subject_after_diet.c = as.double(subject_after_diet)
+## numberOfSubject = 5
+
+# Second: weight_loss
+
+weight_loss &lt;- before_diet-after_diet # subject_weight_loss = c(8, 4, 6, 2, -6)
+
+
+# Third: the message
+
+message&lt;- &#39;it is really a headache but I hope I could master it&#39;
+# keep working hard, and by trying and you will eventually master it.
+
+
+
+# Fourth: the WEIGHT_LOSS list
+
 WEIGHT_LOSS = list(
   &quot;subject&quot; = subjectName,
-  &quot;weight_loss&quot; = subject_weight_loss
+  &quot;weight_loss&quot; = weight_loss,
+  &quot;table&quot; = data.frame(subjectName, weight_loss)
 )
 
-MESSAGE = list(
-  &#39;it is really a headache but I hope I could master it&#39;
-)
 
+# Fifth: the BUBBLE_DIET list
+
+
+BUBBLE_DIET = list(
+  &quot;Table_diet&quot; = table.diet,
+  &quot;Info_weight_loss&quot; = WEIGHT_LOSS,
+  &quot;Message&quot; = message
+    )
 
 print(BUBBLE_DIET)</code></pre>
-<pre><code>## $ID
-## [1] 1 2 3 4 5
+<pre><code>## $Table_diet
+##           before_diet after_diet
+## subject_1         104         96
+## subject_2          95         91
+## subject_3          87         81
+## subject_4          77         75
+## subject_5         112        118
 ## 
-## $before_diet
-## [1] 104  95  87  77 112
+## $Info_weight_loss
+## $Info_weight_loss$subject
+## [1] &quot;subject_1&quot; &quot;subject_2&quot; &quot;subject_3&quot; &quot;subject_4&quot; &quot;subject_5&quot;
 ## 
-## $after_diet
-## [1]  96  91  81  75 118
+## $Info_weight_loss$weight_loss
+## [1]  8  4  6  2 -6
 ## 
-## $`Total Subject`
-## [1] 5</code></pre>
-</div>
-<div id="the-second-attribute" class="section level1">
-<h1>The second attribute</h1>
+## $Info_weight_loss$table
+##   subjectName weight_loss
+## 1   subject_1           8
+## 2   subject_2           4
+## 3   subject_3           6
+## 4   subject_4           2
+## 5   subject_5          -6
+## 
+## 
+## $Message
+## [1] &quot;it is really a headache but I hope I could master it&quot;</code></pre>
+<p>Easy, easy :)</p>
 </div>
 
 

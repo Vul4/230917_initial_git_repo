@@ -12,7 +12,7 @@ Trying to help you a bit below with a step-by-step solution
 before_diet = c(104, 95, 87, 77, 112)
 after_diet = c(96, 91, 81, 75, 118)
 subjectName = c("subject_1", "subject_2", "subject_3", "subject_4", "subject_5")
-table.diet<-data.frame(subject_before_diet, subject_after_diet)
+table.diet<-data.frame(before_diet, after_diet)
 rownames(table.diet)<-subjectName
 table.diet
 

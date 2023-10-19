@@ -7,12 +7,15 @@ date: "2023-10-18"
 ```{r}
 library(leaflet)
  m <- leaflet() %>%
-    addTiles() %>%  
-
-    setView(lng= -0.152778, lat=50.827778, zoom = 15) %>%
-# Now, add a marker with a popup, 
-    addMarkers(lng= -0.152778, lat=50.827778, popup="<b>Quelque part dans le temps</b>")
-
-m 
+    addTiles() %>% 
+   setView(lng= -0.0867713, lat=50.8687420, zoom = 15) %>%
+    addRectangles(
+    lng1=-0.093462, lat1=50.871715,
+    lng2=-0.082267, lat2=50.868452,
+    fillColor = "transparent")
+    
+m
 ```
-
+#setView(lng= -0.152778, lat=50.827778, zoom = 15) %>%
+# Now, add a marker with a popup,
+    addMarkers(lng= -0.152778, lat=50.827778, popup="<b>Quelque part dans le temps</b>", options = popupOptions(closeButton = FALSE))

@@ -4401,14 +4401,14 @@ display: none;
 <pre class="r"><code>library(leaflet)
  m &lt;- leaflet() %&gt;%
     addTiles() %&gt;%  
-
+# set target view and the zoom percentage
     setView(lng= -0.152778, lat=50.827778, zoom = 15) %&gt;%
-# Now, add a marker with a popup, 
+# add a marker with a popup and the tag, 
     addMarkers(lng= -0.152778, lat=50.827778, popup=&quot;&lt;b&gt;Quelque part dans le temps&lt;/b&gt;&quot;)
 
 m </code></pre>
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-6a8ac27788890382e0e3" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-6a8ac27788890382e0e3">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[50.827778,-0.152778,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"<b>Quelque part dans le temps<\/b>",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"setView":[[50.827778,-0.152778],15,[]],"limits":{"lat":[50.827778,50.827778],"lng":[-0.152778,-0.152778]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-751fc4d65d4c0c25d423" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-751fc4d65d4c0c25d423">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[50.827778,-0.152778,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"<b>Quelque part dans le temps<\/b>",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"setView":[[50.827778,-0.152778],15,[]],"limits":{"lat":[50.827778,50.827778],"lng":[-0.152778,-0.152778]}},"evals":[],"jsHooks":[]}</script>
 <p>```</p>
 
 

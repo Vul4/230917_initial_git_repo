@@ -369,7 +369,7 @@ display: none;
   N2[1] &lt;- 0
   for (i in 2:num_gen)  {
     N1[i] = N1[i-1] + (growth.rate * N1[i-1] * ((K1-N1[i-1]-(a12*N2[i-1]))/K1))
-    N2[i] = N2[i-1] + (growth.rate * N2[i-1] * ((K2-N2[i-1]-(a21*N2[i-1]))/K2))
+    N2[i] = N2[i-1] + (growth.rate * N2[i-1] * ((K2-N2[i-1]-(a21*N1[i-1]))/K2))
     generation[1]=1
     print(N1[i-1])
   if (N1[1]&gt;2){

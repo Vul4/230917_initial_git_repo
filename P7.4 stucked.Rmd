@@ -17,15 +17,15 @@ view(rairuoho_long2)
 
 ```{r}
 my.t.test1 = function(treatment, length){
-         pval <- pt(tstat, df, lower.tail = FALSE)
-         cint <- c(tstat - qt(conf.level, df), Inf)
+         pval <- pt(treatment, length, lower.tail = FALSE)
+         cint <- c(treatment - qt(conf.level, df), Inf)
      }
 ```
 
 ```{r}
 my.t.test2 = function(treatment, factor){
-         pval <- pt(tstat, df, lower.tail = FALSE)
-         cint <- c(tstat - qt(conf.level, df), Inf)
+         pval <- pt(treatment, factor, lower.tail = FALSE)
+         cint <- c(treatment - qt(conf.level, df), Inf)
      }
 ```
 

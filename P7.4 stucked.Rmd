@@ -1,0 +1,31 @@
+---
+title: "P 7.4"
+output: html_document
+date: "2023-11-05"
+---
+
+```{r}
+library (psych)
+library(ggplot2)
+library(dplyr)
+library(gridExtra)
+library(car)
+
+data()
+view(rairuoho_long2)
+```
+
+```{r}
+my.t.test1 = function(treatment, length){
+         pval <- pt(tstat, df, lower.tail = FALSE)
+         cint <- c(tstat - qt(conf.level, df), Inf)
+     }
+```
+
+```{r}
+my.t.test2 = function(treatment, factor){
+         pval <- pt(tstat, df, lower.tail = FALSE)
+         cint <- c(tstat - qt(conf.level, df), Inf)
+     }
+```
+

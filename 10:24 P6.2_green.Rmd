@@ -20,8 +20,5 @@ grow4 <- function(growth.rate, num_gene){
 }
 ```
 
-```{r}
 
-grow4(i)
-```
 

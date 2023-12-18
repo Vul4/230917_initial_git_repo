@@ -42,7 +42,7 @@ library(leaflet)
 ```{r}
 data(wrld_simpl) 
 plot(wrld_simpl,xlim=c(100,170),ylim=c(-40,-40),col='#D2B48C',bg='lightblue')
-text(152, -35, 'Australia')
+text(158, -35, 'Australia')
 text(150, -45, 'Tasmania')
 ```
 
@@ -164,6 +164,20 @@ hist(handfishdata2$Sighted_Depth_m,
      xlab = "Sighted depth",
      main = NA)
 ```
+
+Lastly, we use the "cor.test" to get the p-value of Fish_Length_mm & Sighted_Depth_m.
+We got a p-value of 0.000295, indicating a significant different in correlation between the 2 variables.
+```{r}
+cor.test(handfishdata2$Fish_Length_mm, handfishdata2$Sighted_Depth_m)
+```
+With a view using Linear Model, plotting the best linear regression result for the data. Also a better view of how the data is distributed. 
+```{r}
+ggplot(handfishdata2, aes(x = Fish_Length_mm, y = Sighted_Depth_m)) +
+  geom_point(aes(fill=Juvenile),shape = 21, size=5) +
+  stat_smooth(method = "lm", col = "blue")
+```
+
+
   The depth distribution of Spotted handfish do not varied between adults and juveniles, but rather that most individuals preferred the depth of at least 6m or deeper before declining in number when the depth reached 11m deep.
 
   To conclude the hypothesis I proposed - "Adults/larger individuals tend to inhabit deeper water in comparison to juveniles/smaller individuals" was proven to be invalid as sorting and plotting of the raw distribution data of the Spotted handfish turned out to be none-relative. Fish length did not correspond to their sighted depth, meaning that juveniles do not get direct benefits from more shallow water, so nursey water does not exist, and that juveniles would distribute around nature habitats among adults.

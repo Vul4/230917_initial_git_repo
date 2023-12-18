@@ -178,7 +178,7 @@ ggplot(handfishdata2, aes(x = Fish_Length_mm, y = Sighted_Depth_m)) +
 ```
 
 
-  The depth distribution of Spotted handfish do not varied between adults and juveniles, but rather that most individuals preferred the depth of at least 6m or deeper before declining in number when the depth reached 11m deep.
+  The depth distributions of Spotted handfish did not varied between adults and juveniles, but rather that most individuals preferred the depth of at least 6m or deeper before declining in number when the depth reached 11m deep.
 
   To conclude the hypothesis I proposed - "Adults/larger individuals tend to inhabit deeper water in comparison to juveniles/smaller individuals" was proven to be invalid as sorting and plotting of the raw distribution data of the Spotted handfish turned out to be none-relative. Fish length did not correspond to their sighted depth, meaning that juveniles do not get direct benefits from more shallow water, so nursey water does not exist, and that juveniles would distribute around nature habitats among adults.
 Spotted handfish are endangered species due to their low population and vulnerable nature under the stress of predation from invasive seastars or destruction of natural habitats due to pollution or seabed scouring from boats' mooring chains/anchors. Still more precaution and preservation work would be needed to be put into the protection of these peculiar yet fascinating walking sea goblins.

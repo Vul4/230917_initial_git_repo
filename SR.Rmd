@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Semester Report 
 This is a Semester Report！
+Author: " Hsiao-Yang Chu (R10632011)".
 Data source: "Spotted Handfish (Brachionichthys hirsutus) - GPS Underwater Visual Census - 2014-2022 repeated population surveys"
 
 
@@ -50,60 +51,61 @@ text(150, -45, 'Tasmania')
 ## Methods
 ```{r handfish}
 library("readr")
-read.csv("handfish.csv")
-handfish <- read.csv("handfish.csv")
-view(handfish)
+#read.csv("handfish.csv")
+#handfish <- read.csv("handfish.csv")
+head(handfish <- read.csv("handfish.csv"))
 ```
 
-# Single out the data of choice
+ Single out the data of choice
 ```{r}
-handfish$Fish_Length_mm
+#handfish$Fish_Length_mm
+head(handfish$Fish_Length_mm)
 ```
 
 ```{r}
-handfish$Sighted_Depth_m
+#handfish$Sighted_Depth_m
+head(handfish$Sighted_Depth_m)
 ```
 
-# Transform the raw data into a more organized table.
+ Transform the raw data into a more organized table.
 ```{r}
 handfishdata <- as_tibble(handfish)
-handfishdata
 ```
-# Select the 2 columns related to the hypothesis by piping handfishdata into selecting "Fish_Length_mm" and "Sighted_Depth_m".
+ Select the 2 columns related to the hypothesis by piping handfishdata into selecting "Fish_Length_mm" and "Sighted_Depth_m".
 ```{r}
 handfishdata <- handfishdata %>% dplyr::select(Fish_Length_mm, Sighted_Depth_m)
-print(handfishdata)
+head(handfishdata)
 ```
 
   Adult Spotted handfish are typically 70~90-mm TL (Last et al. 2007), so we would categorize fish with a TL of 70mm or above as adults, whereas those smaller as juveniles.
 # handfishdata2 = A new column specifically for Juvenile identification.
 ```{r}
 handfishdata2 <- mutate(handfishdata, Juvenile = Fish_Length_mm < 70 )
-handfishdata2
+head(handfishdata2)
 ```
 
   Here we use the arrange function on "Fish-Length_mm" to get an idea on the correlation between Length and Depth.
 # handfishdata3 = Ascending Fish_Length_mm
 ```{r}
 handfishdata3 <- arrange(handfishdata2, Fish_Length_mm)
-handfishdata3
+head(handfishdata3)
 ```
 
-## The result seemed random.
+  The result seemed random.
   Assuming juveniles do prefer a more shallow water, they should be found less frequently in deeper environments.We will use the arrange function to organize the "Sighted_Depth_m" in an ascending order.
 # handfishdata4 = Correlation between Sighted_Depth_m and Juvenile
 ```{r}
 handfishdata4 <- arrange(handfishdata2, Sighted_Depth_m)
-handfishdata4
+head(handfishdata4)
 ```
   From handfishdata4, we can briefly summarize that the hypothesis of positive correlation between Fish_Length_mm and Sighted_Depth_m is invalid, as handfishdata4 showned a result of random distribution of different fish sizes.
 
-## Here we group the Juvenile(FAlSE = Adults, TRUE = Juveniles) to get the mean size of both categories.
+  Here we group the Juvenile(FAlSE = Adults, TRUE = Juveniles) to get the mean size of both categories.
 ```{r}
 handfishdata2  %>% group_by(Juvenile) %>% summarise(Mean.Length = mean(Fish_Length_mm))
 ```
 
-  Here I plot the data to see "Fish_Length_mm" and "Sighted_Depth_m" independantly.
+  Here I plot the data to see "Fish_Length_mm" and "Sighted_Depth_m" independently.
 # Plotting both "handfishdata3 and 4".
 ```{r}
 plot(handfishdata3$Fish_Length_mm)
@@ -112,9 +114,10 @@ plot(handfishdata3$Fish_Length_mm)
 ```{r}
 plot(handfishdata4$Sighted_Depth_m)
 ```
-
+  With a result of = most data are larger individuals, and most inhabited 6m or deeper water.
+  
   Now I combine the 2 variables to see the correlation of "Fish_Length_mm" and "Sighted_Depth_m" in graphic.
-## Plotting "handfishdata2", setting the x-axis = "Fish length (mm)" and y=axis = "Sighted depth (m)" with the corresponding title.
+# Plotting "handfishdata2", setting the x-axis = "Fish length (mm)" and y=axis = "Sighted depth (m)" with the corresponding title.
 
 ```{r}
 plot(Sighted_Depth_m ~ Fish_Length_mm, data = handfishdata2,
@@ -123,13 +126,13 @@ plot(Sighted_Depth_m ~ Fish_Length_mm, data = handfishdata2,
      main = 'Fish length & sighted depth of handfish')
 ```
 
-  We can see that the correlation between size and depth is extremely weak as the adults and juveniles are dominantly distributed between 6m ~ 12m deep water, with the individuals sighted at 2m being full grown adults.
+  We can see that the correlation between size and depth is extremely weak as the adults and juveniles are dominantly distributed between 6m ~ 12m deep water, with the 2 individuals sighted at 2m being full grown adults rather than juveniles.
 
-  Although failing to prove the hypothesis(as it may seem), we can still make our graph more...pleasing and festive :), nah just kidding, we can differentiate juveniles from adult by giving them separate colors to make the plot more easy to comprehend. 
+  Although failing to prove the hypothesis(as it may seem), we can still make our graph more...pleasing and festive :), nah just kidding, we can differentiate juveniles from adult by giving them separate colors to make the plot/distribution more easy to comprehend. 
 # Use ifelse function to define color on adults and juveniles.
 ```{r}
 col.handfish <- ifelse(handfishdata2$Juvenile=='FALSE','red','green')
-col.handfish
+head(col.handfish)
 ```
 
 ```{r}
